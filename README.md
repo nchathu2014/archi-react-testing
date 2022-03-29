@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Testing Library for ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## RENDERING A COMPONENT
 
-## Available Scripts
+React Testing Library, in contrast to Jest, is one of the testing libraries to test React components. Another popular one in this category is Enzyme as mentioned earlier. We will see in the next sections how to use React Testing Library for testing React components.
 
-In the project directory, you can run:
+```
+import { render } from '@testing-library/react';
+render(<App/>)
+```
 
-### `npm start`
+## SEARCH VARIENTS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+There are 3 search varients in react test library.
+For any element that isn't there yet but will be there eventually, use findBy over getBy or queryBy. If you assert for a missing element, use queryBy. Otherwise default to getBy.
+1- getBy*
+2- queryBy*
+3- findBy\*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Search Types: We can selecting elements by using various search types
+1-Using Text => getByText()
+2-Using Role => getByRole()
+3-Using test-id => data-testid => getByTestId()
 
-### `npm test`
+## FIRE EVENT
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+We can have
 
-### `npm run build`
+- import {fireEvent} from @testing-library/react
+- import userEvent from @testing-library/user-event
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+fireEvent.change()
+userEvent.type()
+userEvent.keyDown()
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+userEvent is an extenstion of fireEvent. userEvent have a simplified API and more methods to interact.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Resources:
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- https://www.robinwieruch.de/react-testing-library/
